@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style/css/main.css">
+    <style>
+        /* Стилі для верхнього колонтитулу, навігаційного меню та форм */
+        header {
+            background-color: #252525;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .logo-name img {
+            max-width: 100px; /* Встановлюємо максимальну ширину для лого */
+        }
+
+        .form-container {
+            width: 300px;
+            margin: 50px auto;
+            background-color: #2f2f2f; /* Колір фону для форм */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: white; /* Додаткові стилі для заголовку форми */
+        }
+
+        .form-container form {
+            padding: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Стилі для нижнього колонтитулу */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Верхній колонтитул -->
+    <header>
+        <div class="container">
+            <div class="logo-name">
+                <img src="./src/img/Logo.svg" alt="" href="./index.html">
+                <img src="./src/img/HEALTHY SWITCHER.svg" alt="">
+            </div>
+            <div class="nav-holder js-nav">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="./index.html">Головна</a></li>
+                        <li class="nav-item"><a href="./dishes.html">Пошук</a></li>
+                        <li class="nav-item"><a href="./calculator.html">Калькулятор</a></li>
+                        <li class="nav-item"><a href="./contacts.html">Контакти</a></li>
+                        <li class="nav-item"><a href="./login.html">Увійти</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+   <!-- Форма авторизації -->
+<div class="form-container">
+    <h2 style="color: white;">Увійти</h2>
+    <form action="/users/login" method="post">
+        <input type="text" name="username" placeholder="Ім'я користувача" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <button type="submit">Увійти</button>
+    </form>
+</div>
+
+<!-- Форма реєстрації -->
+<div class="form-container">
+    <form action="/users/create" method="post">
+    <h2>Зареєструватися</h2>
+    <form>
+        <input type="text" name="username" placeholder="Ім'я користувача" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <button type="submit">Зареєструватися</button>
+    </form>
+</div>
+    <!-- Нижній колонтитул -->
+    <section class="footer">
+        <div class="container">
+            <div class="logo-holder">
+                <img src="./src/img/Logo.svg" alt="">
+                <img src="./src/img/HEALTHY SWITCHER.svg" alt="">
+            </div>
+            <div class="text-holder">
+                <p>Розроблено <a href="https://instagram.com/1__.vikusik.__4?igshid=YzAwZjE1ZTI0Zg==">Мельник Вікторією</a> та <a href="https://instagram.com/_atamanua_?igshid=MXNjaWNoNmdwNWJuMg==">Атаманюк Тетяною</a></p>
+            </div>
+        </div>
+    </section>    
+    <!-- <script>
+        // Отримуємо посилання на форму для авторизації та реєстрації
+        const loginForm = document.querySelector('.form-container:nth-of-type(1) form');
+        const registerForm = document.querySelector('.form-container:nth-of-type(2) form');
+    
+        // Функція для відправлення даних на сервер
+        async function sendData(url, data) {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+    
+                if (!response.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+    
+                const result = await response.json();
+                console.log(result); // Логіка обробки успішної відповіді
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+                // Логіка обробки помилки
+            }
+        }
+    
+        // Обробник подій для подій submit форм
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const username = loginForm.querySelector('input[type="text"]').value;
+            const password = loginForm.querySelector('input[type="password"]').value;
+    
+            // Відправка даних на сервер для авторизації
+            await sendData('http://localhost:3000/users/login', { username, password });
+        });
+    
+        registerForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const username = registerForm.querySelector('input[type="text"]').value;
+            const email = registerForm.querySelector('input[type="email"]').value;
+            const password = registerForm.querySelector('input[type="password"]').value;
+    
+            // Відправка даних на сервер для реєстрації
+            await sendData('http://localhost:3000/users/create', { username, email, password });
+        });
+    </script>
+     -->
+</body>
+</html>

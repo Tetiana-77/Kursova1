@@ -1,0 +1,12 @@
+{
+  "dishes": [
+    {
+      "identifier": "1",
+      "name": "borshch",
+      "description": "naikrashche sho isnye",
+      "ingridients": "chervona voda",
+      "cull": "nema, це borshch",
+      "filename": "завантаження.jpg"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style/css/main.css">
+   
+</head>
+<body>
+    <section class="navigation-contacts">
+        <div class="container">
+            <div class="logo-name">
+                <img src="./src/img/Logo.svg" alt="">
+                <img src="./src/img/HEALTHY SWITCHER.svg" alt="">
+            </div>
+
+            <div class="nav-holder js-nav">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="./index.html">Головна</a></li>
+                        <li class="nav-item"><a href="./dishes.html">Пошук</a></li>
+                        <li class="nav-item"><a href="./calculator.html">Калькулятор</a></li>
+                        <li class="nav-item"><a href="./contacts.html">Контакти</a></li>
+                        <li class="nav-item"><a href="./login.html">Увійти</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="con-desc">
+        <div class="container">
+            <div class="calc-head">
+                <p>КАЛЬКУЛЯТОР</p>
+
+                <div class="calc-desc">
+                    <p>КАЛОРІЙ</p>
+                </div>
+        </div>
+    </section>
+
+    <section class="calculator">
+        <div class="container">
+            <div class="form">
+                <p>Вкажіть вашу вагу у кілограмах</p>
+                <div class="input-holder">
+                    <input type="number" class="weight" placeholder="Вага">
+                </div>
+                <p>Вкажіть ваш ріст у сантиметрах</p>
+                <div class="input-holder">
+                    <input type="number" class="height" placeholder="Ріст">
+                </div>
+                <p>Вкажіть скільки вам повних років</p>
+                <div class="input-holder">
+                    <input type="number" class="old" placeholder="Вік">
+                </div>
+                <div class="btn-holder">
+                    <button class="btn" id="calculateBtn">Розрахувати!</button>
+                </div>
+            </div>
+            <div class="result">
+                <p>На день вам потрібно:</p>
+            </div>
+            <!-- <input type="text" class="in">
+            <button class="btn" onclick="test()">send</button> -->
+        </div>
+    </section>
+
+    <!-- <section class="test">
+        <div class="container">
+            <label><input type="radio" value="Чоловік" class="yes" onclick="test()"/> Yes</label>
+            <label><input type="radio" value="Жінка" class="no" onclick="test()"> No</label>
+        </div>
+    </section> -->
+
+    <section class="footer-contacts">
+        <div class="container">
+            <div class="logo-holder">
+                <img src="./src/img/Logo.svg" alt="">
+                <img src="./src/img/HEALTHY SWITCHER.svg" alt="">
+            </div>
+            <div class="text-holder">
+                <p>Розроблено <a href="https://instagram.com/1__.vikusik.__4?igshid=YzAwZjE1ZTI0Zg==">Мельник Вікторією</a> та <a href="https://instagram.com/_atamanua_?igshid=MXNjaWNoNmdwNWJuMg==">Атаманюк Тетяною</a></p>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateBtn = document.getElementById('calculateBtn');
+            calculateBtn.addEventListener('click', calculateCalories);
+        
+            function calculateCalories() {
+                const weight = document.querySelector('.weight').value;
+                const height = document.querySelector('.height').value;
+                const years = document.querySelector('.old').value;
+        
+                fetch('http://localhost:3000/calculate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ weight, height, years })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const resultContainer = document.querySelector('.result');
+                    resultContainer.innerHTML = `<p>${data.calories} калорій.</p>`;
+                })
+                .catch(error => {
+                    console.error('Помилка:', error);
+                });
+            }
+        });
+        
+    </script>
+    
+</body>
+</html>

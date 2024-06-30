@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Додати страву</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Підключення стилів -->
+</head>
+<body>
+    <h1>Додати страву</h1>
+    <form action="/dishes_add" method="POST">
+       
+
+        <label for="name">Назва страви:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="cull">Калорії:</label><br>
+        <textarea id="cull" name="cull" required></textarea><br><br>
+        
+        <label for="category">Категорія:</label>
+        <input id="category" name="category" required><br><br>
+
+        <label for="ingredients">Інгредієнти:</label><br>
+        <textarea id="ingredient" name="ingredient" required></textarea><br><br>
+
+
+        <button type="submit">Додати страву</button>
+    </form>
+</body>
+</html>

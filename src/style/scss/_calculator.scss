@@ -1,0 +1,170 @@
+.navigation-calc {
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 89px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 80px;
+    
+        .logo-name {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 207px;
+            width: 100%;
+            margin: 0;
+    
+            & img:last-child {
+                padding-top: 7px;
+            }
+        }
+    
+        .nav-holder {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 350px;
+            width: 100%;
+    
+            .nav {
+                margin: 0 auto;
+            }
+    
+            .nav-list {
+                display: flex;
+                flex-wrap: wrap;
+        
+                li {
+                    font-size: 14px;
+                    margin-left: 20px;
+    
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+        
+                a {
+                    color: #fff;
+                    transition: ease-in-out 0.6s;
+    
+                    &:hover {
+                        color: #34C759;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+.calc-head {
+    position: relative;
+    max-width: 526px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-bottom: 2px solid #34C759;
+
+    color: #303030;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 150px; /* 150% */
+    letter-spacing: 6px;
+
+    .calc-desc {
+        position: absolute;
+        top: 45px;
+        left: -50%;
+        right: -50%;
+        color: #D9D9D9;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 60px; /* 200% */
+        letter-spacing: 6px;
+    }
+}
+
+.calculator {
+    margin-bottom: 60px;
+
+    .container {
+        padding: 30px 30px;
+        background-color: #252525;
+        color: #D9D9D9;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 400;
+
+        .form {
+            p {
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .input-holder {
+                margin-bottom: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                input {
+                    color: #34C759;
+                    background-color: #303030;
+                    border: none;
+                    border-bottom: 2px solid #34C759;
+                    width: 200px;
+                    height: 25px;
+                    text-align: center;
+                    font-size: 16px;
+                }
+            }
+
+            .btn-holder {
+                @extend .input-holder;
+                
+                button {
+                    padding: 25px 0;
+                    max-width: 220px;
+                    width: 100%;
+                    background-color: #34C759;
+                    border-radius: 43px;
+                    border: none;
+                    color: var(--Black, #1A1A1A);
+                    font-family: Helvetica Neue;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    letter-spacing: 3.6px;
+                }
+            }
+        }
+
+        .result {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+
+            & p:first-child {
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.test {
+    .container {
+        background-color: #D9D9D9;
+    }
+}
+

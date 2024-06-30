@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style/css/main.css">
+    <script src="./src/js/dishes.js" async></script>
+</head>
+<body>
+
+    <section class="navigation-dishes">
+        <div class="container">
+            <div class="logo-name">
+                <img src="./src/img/Logo.svg" alt="">
+                <img src="./src/img/HEALTHY SWITCHER.svg" alt="">
+            </div>
+
+            <div class="nav-holder js-nav">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="./index.html">Головна</a></li>
+                        <li class="nav-item"><a href="./dishes.html">Пошук</a></li>
+                        <li class="nav-item"><a href="./calculator.html">Калькулятор</a></li>
+                        <li class="nav-item"><a href="./contacts.html">Контакти</a></li>
+                        <li class="nav-item"><a href="./login.html">Увійти</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <section class="search-desc">
+        <div class="container">
+            <div class="search-head">
+                <p>ПОШУК</p>
+
+                <div class="search-desc">
+                    <p>СТРАВ</p>
+                </div>
+        </div>
+    </section>
+
+    <section class="search">
+        <div class="container">
+            <div class="dish-input">
+                <input type="text" class="search-input" placeholder="Введіть назву страви!">
+                <button class="btn-search" onclick="search()">Шукати</button>
+            </div>
+            <div class="filters">
+                <button onclick="firstDishes()">Перші страви</button>
+                <button onclick="meat()">М'ясні страви</button>
+                <button onclick="sideDish()">Гарніри</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="dishes">
+        <div class="container">
+            <div class="dishes-holder">
+
+            </div>
+            <div class="searched-dishes">
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-contacts">
+        <div class="container">
+            <div class="logo-holder">
+                <img src="./src/img/Logo.svg" alt="">
+                <img src="./src/img/HEALTHY SWITCHER.svg" alt="">
+            </div>
+            <div class="text-holder">
+                <p>Розроблено <a href="https://instagram.com/1__.vikusik.__4?igshid=YzAwZjE1ZTI0Zg==">Мельник Вікторією</a> та <a href="https://instagram.com/_atamanua_?igshid=MXNjaWNoNmdwNWJuMg==">Атаманюк Тетяною</a></p>
+            </div>
+        </div>
+    </section>
+    <script>
+        function displaySearchResults(data) {
+            const searchedDishes = document.querySelector('.searched-dishes');
+            searchedDishes.innerHTML = ''; // Очищення вмісту перед оновленням
+        
+            // Перевірка наявності результатів
+            if (data.results.length === 0) {
+                searchedDishes.innerHTML = '<p>Нічого не знайдено</p>';
+                return;
+            }
+        
+            // Створення списку страв
+            const ul = document.createElement('ul');
+            data.results.forEach(dish => {
+                const li = document.createElement('li');
+                li.textContent = dish.name;
+                ul.appendChild(li);
+            });
+        
+            // Додавання списку страв до елементу DOM
+            searchedDishes.appendChild(ul);
+        }
+        function displayUpdatedDishes(updatedDishes) {
+    const dishesHolder = document.querySelector('.dishes-holder');
+
+    // Очищення вмісту контейнера зі списком страв перед оновленням
+    dishesHolder.innerHTML = '';
+
+    // Оновлення DOM з отриманими результатами пошуку
+    updatedDishes.forEach(dish => {
+        const dishElement = document.createElement('div');
+        dishElement.classList.add('dish-item');
+        dishElement.innerHTML = `
+            <h3>${dish.name}</h3>
+            <p>Category: ${dish.category}</p>
+            <!-- Додайте інші властивості страви, які ви хочете відобразити -->
+        `;
+        dishesHolder.appendChild(dishElement);
+    });
+}
+function displayUpdatedDishes(updatedDishes) {
+    const dishesHolder = document.querySelector('.dishes-holder');
+
+    // Очищення вмісту контейнера зі списком страв перед оновленням
+    dishesHolder.innerHTML = '';
+
+    // Оновлення DOM з отриманими результатами пошуку
+    updatedDishes.forEach(dish => {
+        const dishElement = document.createElement('div');
+        dishElement.classList.add('dish-item');
+        dishElement.innerHTML = `
+            <h3>${dish.name}</h3>
+            <p>Category: ${dish.category}</p>
+            <!-- Додайте інші властивості страви, які ви хочете відобразити -->
+        `;
+        dishesHolder.appendChild(dishElement);
+    });
+}
+
+        
+    </script>
+</body>
+</html>

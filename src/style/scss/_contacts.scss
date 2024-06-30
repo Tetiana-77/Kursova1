@@ -1,0 +1,181 @@
+.navigation-contacts {
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 89px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 80px;
+    
+        .logo-name {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 207px;
+            width: 100%;
+            margin: 0;
+    
+            & img:last-child {
+                padding-top: 7px;
+            }
+        }
+    
+        .nav-holder {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 350px;
+            width: 100%;
+    
+            .nav {
+                margin: 0 auto;
+            }
+    
+            .nav-list {
+                display: flex;
+                flex-wrap: wrap;
+        
+                li {
+                    font-size: 14px;
+                    margin-left: 20px;
+    
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+        
+                a {
+                    color: #fff;
+                    transition: ease-in-out 0.6s;
+    
+                    &:hover {
+                        color: #34C759;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+.social-head {
+    position: relative;
+    max-width: 526px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-bottom: 2px solid #34C759;
+
+    color: #303030;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 150px; /* 150% */
+    letter-spacing: 20px;
+
+    .social-desc {
+        position: absolute;
+        top: 45px;
+        left: -50%;
+        right: -50%;
+        color: #D9D9D9;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 60px; /* 200% */
+        letter-spacing: 6px;
+    }
+}
+
+.vika {
+    margin-bottom: 60px;
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 30px;
+        border-radius: 6px;
+        background-color: #252525;
+
+        .img-holder img {
+            border-radius: 6px;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .vika-desc {
+            width: 600px;
+            max-width: 100%;
+            flex-wrap: wrap;
+            margin-left: 100px;
+            color: #D9D9D9;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 40px; /* 200% */
+            letter-spacing: 4px;
+
+            & p:first-child {
+                color: #34C759;
+
+                & span {
+                    color: #D9D9D9;
+                }
+            }
+
+            a {
+                color: #D9D9D9;
+                text-decoration: underline;
+                text-decoration-color: #34C759;
+            }
+        }
+    }
+}
+
+.vika.tania {
+    .container {
+        .vika-desc.tania {
+            margin-left: 0;
+            margin-right: 100px;
+        }
+    }
+}
+.footer-contacts {
+    background-color: #252525;
+
+    .container {
+        padding: 30px 0;
+
+        .logo-holder {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 13px;
+
+            & img:last-child {
+                margin-left: 7px;
+                padding-top: 7px;
+            }
+        }
+
+        .text-holder {
+            color: #737373;
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+
+            & a {
+                color: #34C759;
+                text-decoration: underline;
+            }
+        }
+    }
+}
